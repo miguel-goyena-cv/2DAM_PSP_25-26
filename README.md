@@ -1,11 +1,3 @@
-# 2DAM_PSP_25-26
-Repositorio para ejercicios de clase de 2 DAM
-
-Módulo Programación Servicios y Procesos
-
-## UT0: Inicialización Java
-
-Ejemplo Hello World
 
 # 📘 2DAM_PSP_25-26
 
@@ -16,7 +8,7 @@ Módulo Programación Servicios y Procesos
 
 ## 📑 Índice de proyectos
 
-### 🔹 Proyecto 1: **introduccionJava**
+### 🔹 UT0: **introduccionJava**
 - **Descripción:** Introducción a los fundamentos de Java.  
 - **Ejemplos incluidos:**  
   - Hello World  
