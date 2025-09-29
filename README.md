@@ -12,6 +12,10 @@ Módulo Programación Servicios y Procesos
 - **Descripción:** Introducción a los fundamentos de Java.  
 - **Ejemplos incluidos:**  
   - Hello World  
+  - Herencias - Empleados
+  - Herencias - Deportista
+  - Colecciones - Listas
+  - Colecccions - Mapas. Donde pongo 3 tipos de soluciones.
 - **Conceptos clave:** sintaxis básica, herencia, colecciones, excepciones.
 
 ---
