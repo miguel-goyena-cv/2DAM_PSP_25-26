@@ -8,7 +8,7 @@ Módulo Programación Servicios y Procesos
 
 ## 📑 Índice de proyectos
 
-### 🔹 UT0: **introduccionJava**
+### 🔹 UT1: **introduccionJava**
 - **Descripción:** Introducción a los fundamentos de Java.  
 - **Ejemplos incluidos:**  
   - Hello World  
@@ -16,7 +16,17 @@ Módulo Programación Servicios y Procesos
   - Herencias - Deportista
   - Colecciones - Listas
   - Colecccions - Mapas. Donde pongo 3 tipos de soluciones.
+  - Excepciones - Ejemplo de Excepciones, la calculadora de naturales
 - **Conceptos clave:** sintaxis básica, herencia, colecciones, excepciones.
+
+### 🔹 UT2: **procesoshilos**
+- **Descripción:** Uso de programación concurrente en JAVA utilizando procesos e hilos.  
+- **Ejemplos incluidos:**  
+  - Procesos: Proceso Notepad y Lanzador 
+  - Procesos: Proceso Sumador y Lanzador
+  - Procesos: Ejercicio Procesos: Sumador con Notepad
+  - Porcesos: Proceso pesado, algto consumo de CPU y Lanzador
+- **Conceptos clave:** procesos, ProcessBuilder, Threads, Momnitores, Semaforos, Sincronización.
 
 ---
 
