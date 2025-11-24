@@ -1,4 +1,4 @@
-package org.cuatrovientos.dam.psp.procesoshilos.hilos.sync;
+package org.cuatrovientos.dam.psp.procesoshilos.hilos.sincronizacion.ejercicio1.sync;
 
 
 public class ProblemaCondicionCarrera {

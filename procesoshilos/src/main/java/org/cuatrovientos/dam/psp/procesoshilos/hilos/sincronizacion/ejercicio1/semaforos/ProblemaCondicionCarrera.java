@@ -1,4 +1,4 @@
-package org.cuatrovientos.dam.psp.procesoshilos.hilos.semaforos;
+package org.cuatrovientos.dam.psp.procesoshilos.hilos.sincronizacion.ejercicio1.semaforos;
 
 import java.util.concurrent.Semaphore;
 

@@ -1,4 +1,4 @@
-package org.cuatrovientos.dam.psp.procesoshilos.hilos.ataomicinteger;
+package org.cuatrovientos.dam.psp.procesoshilos.hilos.sincronizacion.ejercicio1.atomicinteger;
 
 import java.util.concurrent.Semaphore;
 

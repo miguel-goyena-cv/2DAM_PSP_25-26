@@ -1,4 +1,4 @@
-package org.cuatrovientos.dam.psp.procesoshilos.hilos.sync;
+package org.cuatrovientos.dam.psp.procesoshilos.hilos.sincronizacion.ejercicio1.atomicinteger;
 
 import java.util.concurrent.Semaphore;
 
@@ -15,7 +15,9 @@ public class HiloCarrera implements Runnable {
 	public void run() {
 
 		for (int i = 0; i< 100000; i++) {
-			this.contadorComun.incrementar();
+			synchronized (contadorComun) {
+				this.contadorComun.incrementar();
+			}
 		}
 		
 		System.out.println("Acaba hilo: "+Thread.currentThread().threadId()+" y el contador es: "+this.contadorComun.getValor());
