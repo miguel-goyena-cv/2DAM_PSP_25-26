@@ -5,8 +5,8 @@ import java.time.Duration;
 public class Impresora implements Runnable {
 
 	// Constantes
-	private static final Duration ESPERA_IMPRESORA = Duration.ofMillis(10);
-	private static final int TIEMPO_IMPRIMIR_HOJA_MILLIS = 2;
+	private static final Duration ESPERA_IMPRESORA = Duration.ofMillis(1000);
+	private static final int TIEMPO_IMPRIMIR_HOJA_MILLIS = 2000;
 
 	// Variables de clase para identificar a una impresora
 	private String nombre;
@@ -34,16 +34,17 @@ public class Impresora implements Runnable {
 			while (impresoraEncendida) {
 			
 				// La impresora recoge el trabajo que haya
-				Trabajo trabajoAImprimir = this.colaImpresion.comenzarImprimirSiguienteTrabajo();
+				Trabajo trabajoAImprimir = this.colaImpresion.recuperarSiguienteTrabajo();
 				if (trabajoAImprimir != null) {
-					logConTimestamp("Se comienza a imprimir: "+trabajoAImprimir);
-					
+
 					// Simulación de impresion
+					logConTimestamp("Se comienza a imprimir: "+trabajoAImprimir);
 					Thread.sleep(trabajoAImprimir.getNumeroHojas()*TIEMPO_IMPRIMIR_HOJA_MILLIS);
+					logConTimestamp("Se acabo la impresion: "+trabajoAImprimir);
 					
 					// Acaba la impresion
 					this.colaImpresion.finalizandoTrabajo(trabajoAImprimir);
-					logConTimestamp("Se acabo la impresion: "+trabajoAImprimir);
+					
 				}
 				else {
 					// Voy a hacer una espera de 1 segundo porque no quiero saturar la CPU de la impresora

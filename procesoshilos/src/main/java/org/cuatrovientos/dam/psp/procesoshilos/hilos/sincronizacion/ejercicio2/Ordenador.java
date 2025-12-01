@@ -7,8 +7,8 @@ public class Ordenador implements Runnable {
 	
 	// Constantes de clase
 	private static final int NUMERO_MAXIMO_HOJAS_TRABAJO = 20;
-	private static final long MAXIMO_TIMEPO_ENTRE_TRABAJOS = Duration.ofSeconds(60).getSeconds()*10;
-	private static final long MINIMO_TIEMPO_ENTRE_TRABAJOS = Duration.ofSeconds(30).getSeconds()*10;
+	private static final long MAXIMO_TIEMPO_ENTRE_TRABAJOS_MILLIS = Duration.ofSeconds(60).getSeconds()*1000;
+	private static final long MINIMO_TIEMPO_ENTRE_TRABAJOS_MILIS = Duration.ofSeconds(30).getSeconds()*1000;
 
 	// Variables de clase para identificar a un ordenador
 	private String usuarioIdentificado;
@@ -40,11 +40,13 @@ public class Ordenador implements Runnable {
 				// El trabajo aleatoriamente es de 1-20 hojas
 				String nombreTrabajo = "Trabajo_"+usuarioIdentificado+"_"+numeroTrabajo++;
 				Trabajo trabajoImprimir = new Trabajo(nombreTrabajo, rand.nextInt(NUMERO_MAXIMO_HOJAS_TRABAJO-1)+1);
+				
+				// Mando a imprimir
+				logConTimestamp("Se manda a imprimir: "+trabajoImprimir);
 				colaImpresion.agregarTrabajo(trabajoImprimir);
-				logConTimestamp("Se mando a imprimir: "+trabajoImprimir);
 				
 				// Simulamos que cada 30-60 segundos mandamos un trabajo a imprimir
-				Thread.sleep(rand.nextLong(MINIMO_TIEMPO_ENTRE_TRABAJOS)+(MAXIMO_TIMEPO_ENTRE_TRABAJOS-MINIMO_TIEMPO_ENTRE_TRABAJOS));
+				Thread.sleep(rand.nextLong(MINIMO_TIEMPO_ENTRE_TRABAJOS_MILIS)+(MAXIMO_TIEMPO_ENTRE_TRABAJOS_MILLIS-MINIMO_TIEMPO_ENTRE_TRABAJOS_MILIS));
 				
 			}
 			
