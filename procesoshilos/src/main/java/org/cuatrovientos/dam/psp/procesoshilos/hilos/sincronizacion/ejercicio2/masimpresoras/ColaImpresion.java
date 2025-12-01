@@ -1,9 +1,8 @@
-package org.cuatrovientos.dam.psp.procesoshilos.hilos.sincronizacion.ejercicio2;
+package org.cuatrovientos.dam.psp.procesoshilos.hilos.sincronizacion.ejercicio2.masimpresoras;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
-import java.util.concurrent.Semaphore;
 
 public class ColaImpresion{
 	
@@ -13,7 +12,6 @@ public class ColaImpresion{
 	private List<Trabajo> trabajosEncolados;
 	private List<Trabajo> trabajosEnCurso;
 	private List<Trabajo> trabajosFinalizados;
-	private Semaphore semaforoColaImpresion = new Semaphore(1);
 	
 
 	public ColaImpresion(String nombre) {
@@ -25,15 +23,13 @@ public class ColaImpresion{
 		this.trabajosFinalizados = new ArrayList<>();
 	}
 	
-	public void agregarTrabajo(Trabajo trabajo) throws InterruptedException {
+	public synchronized void agregarTrabajo(Trabajo trabajo) throws InterruptedException {
 		logConTimestamp("La cola recibe un trabajo de impresion: "+trabajo.getNombre());
-		semaforoColaImpresion.acquire();
 		this.trabajosRecibidos.add(trabajo);
 		this.trabajosEncolados.add(trabajo);
-		semaforoColaImpresion.release();
 	}
 	
-	public Trabajo recuperarSiguienteTrabajo() throws InterruptedException {
+	public synchronized Trabajo recuperarSiguienteTrabajo() throws InterruptedException {
 		// Recupero el trabajo a imprimir
 		Trabajo trabajoAImprimir = null;
 		try {
@@ -49,7 +45,7 @@ public class ColaImpresion{
 		return trabajoAImprimir;
 	}
 	
-	public void finalizandoTrabajo(Trabajo trabajoImpreso) {
+	public synchronized void finalizandoTrabajo(Trabajo trabajoImpreso) {
 		logConTimestamp("La cola va a dar por finalizado un trabajo: "+trabajoImpreso.getNombre());
 		this.trabajosEnCurso.remove(trabajoImpreso);
 		this.trabajosFinalizados.add(trabajoImpreso);
@@ -61,7 +57,7 @@ public class ColaImpresion{
      * @param log
      */
     private void logConTimestamp(String log){
-    	System.err.println("["+Thread.currentThread().threadId()+"][" + this.nombre + "]; Log: " + log);
+    	System.err.println("["+Thread.currentThread().threadId()+"][" + this.nombre + "]; Log: "+log);
     }
 
 	@Override
