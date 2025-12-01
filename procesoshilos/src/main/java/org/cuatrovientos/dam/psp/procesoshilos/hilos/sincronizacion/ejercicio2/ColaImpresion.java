@@ -13,6 +13,7 @@ public class ColaImpresion{
 	private List<Trabajo> trabajosEncolados;
 	private List<Trabajo> trabajosEnCurso;
 	private List<Trabajo> trabajosFinalizados;
+	private Semaphore semaforoColaImpresion = new Semaphore(1);
 	
 
 	public ColaImpresion(String nombre) {
@@ -24,10 +25,12 @@ public class ColaImpresion{
 		this.trabajosFinalizados = new ArrayList<>();
 	}
 	
-	public synchronized void agregarTrabajo(Trabajo trabajo) throws InterruptedException {
+	public void agregarTrabajo(Trabajo trabajo) throws InterruptedException {
 		logConTimestamp("La cola recibe un trabajo de impresion: "+trabajo.getNombre());
+		semaforoColaImpresion.acquire();
 		this.trabajosRecibidos.add(trabajo);
 		this.trabajosEncolados.add(trabajo);
+		semaforoColaImpresion.release();
 	}
 	
 	public Trabajo recuperarSiguienteTrabajo() throws InterruptedException {
