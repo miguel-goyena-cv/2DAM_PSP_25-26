@@ -25,8 +25,20 @@ Módulo Programación Servicios y Procesos
   - Procesos: Proceso Notepad y Lanzador 
   - Procesos: Proceso Sumador y Lanzador
   - Procesos: Ejercicio Procesos: Sumador con Notepad
-  - Porcesos: Proceso pesado, algto consumo de CPU y Lanzador
-- **Conceptos clave:** procesos, ProcessBuilder, Threads, Momnitores, Semaforos, Sincronización.
+  - Procesos: Proceso pesado, algto consumo de CPU y Lanzador
+  - Hilos: Trabajos pesados en hilos. Monitorización hilos.
+  - Hilos: Ejercicio 3. Carrera atletismo, carrera de hilos
+  - Hilos: Ejercicio tipo examen, Simulador de examen de DAM
+  - Hilos Sincronización: Ejercicio 1, Condicion de carrera, diversas soluciones.
+  - Hilos Sincronización: Ejercicio 2, Colas de impresión, recursos compartidos.
+  - Hilos Sincronización: Deadlocks, cena de los filosofos, con diferentes soluciones.
+
+- **Conceptos clave:** procesos, ProcessBuilder, Threads, Monitores, Semaforos, Sincronización.
+
+### 🔹 UT3-UT4: **kafka**
+- **Descripción:** Implementación de patrón productor-consumidor con procesos independientes y un gestor de Topics como KAFKA.  
+- **Ejemplos incluidos:**  
+  - Manzanas 4V: Productores y Consumidores de KAFKA
 
 ---
 
